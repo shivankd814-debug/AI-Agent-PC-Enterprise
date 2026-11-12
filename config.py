@@ -1,0 +1,12 @@
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+class Settings(BaseSettings):
+    app_name: str = "AI Agent Automation PC"
+    environment: str = "development"
+    database_url: str = "sqlite:///./agent.db"
+    agent_api_key: str = "change-me"
+    allow_desktop_control: bool = False
+    allow_browser_automation: bool = False
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+
+settings = Settings()
